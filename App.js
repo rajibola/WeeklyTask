@@ -24,7 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 25, textAlign: "center" }}>
+        <Text style={styles.text}>
           Press back button to see the alert message
         </Text>
       </View>
@@ -39,4 +39,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  text: { fontSize: 25, textAlign: "center " },
 });
