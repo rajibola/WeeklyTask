@@ -5,7 +5,12 @@ import { MaterialIcons } from "@expo/vector-icons";
 export default function App() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.floatbutton}>
+      <TouchableOpacity
+        style={styles.floatbutton}
+        onPress={() => {
+          alert("You tapped the button!");
+        }}
+      >
         <MaterialIcons name="chat" size={27} color="white" />
       </TouchableOpacity>
     </View>
