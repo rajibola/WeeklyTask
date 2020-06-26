@@ -1,32 +1,20 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, BackHandler, Alert } from "react-native";
+import { StyleSheet, View, Animated } from "react-native";
 
 export default class App extends Component {
-  componentWillMount() {
-    BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
-  }
-  componentWillUnmount() {
-    BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
-  }
-
-  onBackPress = () => {
-    Alert.alert(
-      "Exit from App",
-      "Do you want to exit from App",
-      [
-        { text: "Yes", onPress: () => BackHandler.exitApp() },
-        { text: "No", onPress: () => console.log("No Pressed") },
-      ],
-      { cancelable: false }
-    );
-  };
-
   render() {
+    const position = new Animated.ValueXY({ x: 500, y: 0 });
+
+    Animated.timing(position, {
+      toValue: { x: 0, y: 0 },
+      duration: 4000,
+    }).start();
+
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Press back button to see the alert message
-        </Text>
+        <Animated.Text style={{ transform: [{ translateX: position.x }] }}>
+          Animating my text
+        </Animated.Text>
       </View>
     );
   }
@@ -39,6 +27,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
-  text: { fontSize: 25, textAlign: "center " },
 });

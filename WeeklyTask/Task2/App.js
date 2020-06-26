@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   floatbutton: {
@@ -33,10 +35,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 20,
     bottom: 20,
-    shadowOffset: { width: 0, height: 2 },
-    shadowColor: "black",
-    shadowOpacity: 0.8,
-    shadowRadius: 5,
-    elevation: 1,
   },
 });
