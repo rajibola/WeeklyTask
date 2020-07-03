@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
     lineHeight: hp(15),
     color: "#2C3F5E",
     fontWeight: "bold",
+    zIndex: 101,
   },
 
   hname: {
