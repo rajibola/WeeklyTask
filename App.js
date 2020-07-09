@@ -198,7 +198,12 @@ export default class App extends Component {
             <View></View>
           </View>
           <View style={styles.sortItem}>
-            <View style={styles.searchIcon}></View>
+            <AntDesign
+              name="search1"
+              style={styles.searchIcon}
+              size={20}
+              color="#7E8CA3"
+            />
           </View>
         </View>
       </View>
@@ -208,9 +213,6 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   searchIcon: {
-    width: hp(20),
-    height: hp(20),
-    borderWidth: 1,
     marginLeft: wp(69),
   },
   sortActionText: {
