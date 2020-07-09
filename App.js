@@ -246,6 +246,9 @@ const styles = StyleSheet.create({
   sortContainer: {
     justifyContent: "center",
     alignItems: "center",
+    borderTopWidth: hp(1),
+    borderColor: "#EAECF0",
+    backgroundColor: "#FAFBFC",
   },
   sortView: {
     flexDirection: "row",
