@@ -1,20 +1,57 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, TextInput, FlatList } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import TableComponent from "./TableComponent";
-import { Provider as PaperProvider } from "react-native-paper";
+
+import BreadData from "./BreadData";
+
 import { hp, wp } from "./common";
 
 export default class App extends Component {
   render() {
     return (
-      <PaperProvider>
-        <TableComponent data={[1, 2, 3, 4]} />
-      </PaperProvider>
+      <View style={styles.container}>
+        <View style={styles.searchView}>
+          <View>
+            <TextInput style={styles.searchBox} />
+
+            {this.searchResult()}
+          </View>
+          <View style={styles.goButton} onPress={() => null}>
+            <MaterialCommunityIcons
+              name="arrow-right"
+              size={30}
+              color="white"
+            />
+          </View>
+        </View>
+      </View>
     );
   }
+
+  searchResult = () => {
+    return (
+      <View style={styles.searchResult}>
+        <FlatList
+          data={BreadData}
+          renderItem={({ item }) => (
+            <View style={styles.resultItem}>
+              <Text style={styles.resultText}>{item.name}</Text>
+              <Text style={styles.resultPrice}>{item.price}</Text>
+            </View>
+          )}
+        />
+
+        <View style={styles.addProductBox}>
+          <Text style={styles.addProductText}>Bread</Text>
+          <Text style={styles.addProductFunction}>
+            <Text style={styles.addButton}>+</Text> Add Product
+          </Text>
+        </View>
+      </View>
+    );
+  };
 }
-//
+
 const styles = StyleSheet.create({
   addProductText: {
     lineHeight: hp(17),
